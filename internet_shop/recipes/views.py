@@ -10,12 +10,12 @@ def home(request):
     context = {
         'recipes': recipes
     }
-    return render(request, "recipes/home.html", context)
+    return render(request, "recipes/index.html", context)
 
 
 class RecipeListView(ListView):
     model = models.Recipe
-    template_name = 'recipes/home.html'
+    template_name = 'recipes/index.html'
     context_object_name = 'recipes'
 
 
