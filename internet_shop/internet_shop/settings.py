@@ -21,10 +21,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv('SECRET_KEY')
+# SECRET_KEY = os.getenv('SECRET_KEY')
+SECRET_KEY = 'aa185f411d11cadbb21221e34ec5fbdcdd3486e769cae496de53f0e877664e1f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
@@ -53,8 +54,8 @@ INSTALLED_APPS = [
     "crispy_bootstrap5",
 ]
 
-CRISPY_TEMPLATE_PACK = 'bootstrap5'
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -91,17 +92,21 @@ WSGI_APPLICATION = 'internet_shop.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'droneshop38$default',
+    #     'USER': 'droneshop38',
+    #     'PASSWORD': os.getenv('MYSQL_PASSWORD'),
+    #     'HOST': 'droneshop38.mysql.python anywhere-services.com',
+    #     'OPTIONS': {
+    #         'init_command': 'SET NAMES "utf8mb4"; SET sql_mode="STRICT_TRANS_TABLES"',
+    #         'charset': 'utf8mb4',
+    #     },
+    # },
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'droneshop38$default',
-        'USER': 'droneshop38',
-        'PASSWORD': os.getenv('MYSQL_PASSWORD'),
-        'HOST': 'droneshop38.mysql.python anywhere-services.com',
-        'OPTIONS': {
-            'init_command': 'SET NAMES "utf8mb4"; SET sql_mode="STRICT_TRANS_TABLES"',
-            'charset': 'utf8mb4',
-        },
-    },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
 }
 
 # Password validation
