@@ -8,7 +8,7 @@ class Recipe(models.Model):
     description = models.TextField()
     cooking_steps = models.TextField(blank=True)
     cooking_time = models.IntegerField(default=15)
-    image = models.ImageField()
+    image = models.ImageField(blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
